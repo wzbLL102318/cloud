@@ -2,14 +2,26 @@ package com.scwl.cloud.consumers.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.scwl.cloud.consumers.domain.UserDomain;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class JacksonDemo {
-    public static void main(String[] args) throws IOException {
+
+
+    public static Logger logger = LoggerFactory.getLogger(JacksonDemo.class);
+
+    @Test
+    public void jackSonTest() throws IOException {
         UserDomain user = new UserDomain();
         user.setName("小民");
         user.setAge(20);
@@ -37,7 +49,7 @@ public class JacksonDemo {
         //输出结果：{"name":"小民","age":20,"birthday":844099200000,"email":"xiaomin@sina.com"} 
         String json = mapper.writeValueAsString(user);
 
-        System.out.println(json);
+        logger.info(json);
 
         //Java集合转JSON 
         //输出结果：[{"name":"小民","age":20,"birthday":844099200000,"email":"xiaomin@sina.com"}] 
@@ -45,7 +57,7 @@ public class JacksonDemo {
         users.add(user);
 
         String jsonlist = mapper.writeValueAsString(users);
-        System.out.println(jsonlist);
+        logger.info(jsonlist);
 
 
        // String jsonUser = "{\"name\":\"小民\",\"age\":20,\"username\":844099200000}";
@@ -56,13 +68,23 @@ public class JacksonDemo {
          * ObjectMapper支持从byte[]、File、InputStream、字符串等数据的JSON反序列化。
          */
         UserDomain userJson = mapper.readValue(jsonUser, UserDomain.class);
-        System.out.println(userJson);
+        logger.info(userJson.toString());
 
 
-        System.out.println(user.equals(userJson));
+        logger.info("equals:{}",user.equals(userJson));
 
-        System.out.println("====" + user.hashCode());
-        System.out.println("====" + userJson.hashCode());
+        logger.info("====:{}",user.hashCode());
+        logger.info("====:{}",userJson.hashCode());
+
 
     }
+
+    @Test
+    public void contextLoads() {
+        logger.info("I am trace log.");
+        logger.debug("I am debug log.");
+        logger.warn("I am warn log.");
+        logger.error("I am error log.");
+    }
+
 }

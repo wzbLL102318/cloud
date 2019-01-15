@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class CloudApplicationTests {
 
     /**
-     * slf4j日志
+     * slf4j2日志
      */
 
     public static Logger logger = LoggerFactory.getLogger(CloudApplicationTests.class);
