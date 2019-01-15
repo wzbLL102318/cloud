@@ -1,4 +1,4 @@
-package com.wzb.yd.javase;
+package com.scwl.cloud.production.utils;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
