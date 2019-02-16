@@ -35,3 +35,12 @@ server:
   #reasonable: true
   #supportMethodsArguments: true
   #params: count=countSql
+
+# ldap config
+#连接地址
+spring:
+  ldap:
+    urls: ldap://119.23.187.85:389
+    username: cn=Manager,dc=phjr,dc=com
+    password: 123456
+    base: dc=phjr,dn=com

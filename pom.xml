@@ -43,6 +43,21 @@
             <scope>test</scope>
         </dependency>
 
+        <!--  LDAP -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-ldap</artifactId>
+        </dependency>
+
+        <!-- lombok 精简代码 1.18.4包添加错误-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <!-- 引入log4j2依赖 -->
             <groupId>org.springframework.boot</groupId>
